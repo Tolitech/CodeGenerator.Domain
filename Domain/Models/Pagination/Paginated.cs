@@ -37,8 +37,8 @@ namespace Tolitech.CodeGenerator.Domain.Models.Pagination
                 PaginationRange.Add(i);
             }
 
-            FirstItemOnPage = ((PageNumber - 1) * maxPages) + 1;
-            LastItemOnPage = (FirstItemOnPage - 1) + maxPages;
+            FirstItemOnPage = ((PageNumber - 1) * items.PageSize) + 1;
+            LastItemOnPage = (FirstItemOnPage - 1) + items.PageSize;
 
             if (LastItemOnPage > TotalItemCount)
                 LastItemOnPage = TotalItemCount;
