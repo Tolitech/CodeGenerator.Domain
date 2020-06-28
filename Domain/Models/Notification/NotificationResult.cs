@@ -175,12 +175,12 @@ namespace Tolitech.CodeGenerator.Domain.Models.Notification
             }
         }
 
-        public void ClearMessage()
+        public void ClearMessages()
         {
             _messages.Clear();
         }
 
-        public void ClearError()
+        public void ClearErrors()
         {
             _errors.Clear();
         }
