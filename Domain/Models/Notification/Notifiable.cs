@@ -19,6 +19,7 @@ namespace Tolitech.CodeGenerator.Domain.Models.Notification
 
         public NotificationResult GetNotifications()
         {
+            Validate();
             return NotificationResult;
         }
 

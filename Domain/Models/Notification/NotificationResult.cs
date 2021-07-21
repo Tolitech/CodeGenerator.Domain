@@ -142,7 +142,7 @@ namespace Tolitech.CodeGenerator.Domain.Models.Notification
 
         public void InsertError(int index, NotificationError error)
         {
-            _errors.Insert(0, error);
+            _errors.Insert(index, error);
         }
 
         public void RemoveMessage(NotificationMessage message)
