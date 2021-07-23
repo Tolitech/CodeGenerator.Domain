@@ -4,7 +4,7 @@ namespace Tolitech.CodeGenerator.Domain.Models.Notification
 {
     public class NotificationError : NotificationMessage
     {
-        public Exception Exception { get; set; }
+        protected Exception Exception { get; set; }
 
         public NotificationError(string message) : base(message, "error") { }
 
@@ -18,6 +18,11 @@ namespace Tolitech.CodeGenerator.Domain.Models.Notification
         public NotificationError(string key, Exception ex) : base(key, ex.Message, "error")
         {
             Exception = ex;
+        }
+
+        public Exception GetException()
+        {
+            return Exception;
         }
     }
 }
