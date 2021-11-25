@@ -38,47 +38,47 @@ public class InsertCommand : Command
 ```
 public class InsertCommandHandler : CommandHandler
 {
-	private readonly IPersonRepository _personRepository;
+    private readonly IPersonRepository _personRepository;
 
-	public InsertCommandHandler(IPersonRepository personRepository)
-	{
-		_personRepository = personRepository;
-	}
+    public InsertCommandHandler(IPersonRepository personRepository)
+    {
+        _personRepository = personRepository;
+    }
 
-	public NotificationResult Handle(InsertCommand command)
-	{
-		var person = new Entities.Person(command.Name);
-		var result = _personRepository.Insert(person);
-		return result;
-	}
+    public NotificationResult Handle(InsertCommand command)
+    {
+        var person = new Entities.Person(command.Name);
+        var result = _personRepository.Insert(person);
+        return result;
+    }
 }
 ```
 
 ```
 public class GetAllQueryHandler : QueryHandler
 {
-	private readonly IPersonRepository _personRepository;
+    private readonly IPersonRepository _personRepository;
 
-	public GetAllQueryHandler(IPersonRepository personRepository)
-	{
-		_personRepository = personRepository;
-	}
+    public GetAllQueryHandler(IPersonRepository personRepository)
+    {
+        _personRepository = personRepository;
+    }
 
-	public IEnumerable<GetAllQueryResult> Handle(GetAllQuery query)
-	{
-		var result = new List<GetAllQueryResult>();
+    public IEnumerable<GetAllQueryResult> Handle(GetAllQuery query)
+    {
+        var result = new List<GetAllQueryResult>();
 
-		var items = _personRepository.Get();
+        var items = _personRepository.Get();
 
-		foreach (var item in items)
-		{
-			result.Add(new GetAllQueryResult
-			{
-				Name = item.Name
-			});
-		}
+        foreach (var item in items)
+        {
+            result.Add(new GetAllQueryResult
+            {
+                Name = item.Name
+            });
+        }
 
-		return result;
-	}
+        return result;
+    }
 }
 ```
