@@ -46,7 +46,7 @@ public class InsertCommandHandler : CommandHandler
 	}
 
 	public NotificationResult Handle(InsertCommand command)
-    {
+	{
 		var person = new Entities.Person(command.Name);
 		var result = _personRepository.Insert(person);
 		return result;
@@ -71,12 +71,12 @@ public class GetAllQueryHandler : QueryHandler
 		var items = _personRepository.Get();
 
 		foreach (var item in items)
-        {
+		{
 			result.Add(new GetAllQueryResult
 			{
 				Name = item.Name
 			});
-        }
+		}
 
 		return result;
 	}
