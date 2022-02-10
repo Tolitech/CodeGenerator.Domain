@@ -54,8 +54,11 @@ namespace Tolitech.CodeGenerator.Domain.Tests
             var queryHandler = new Domain.Queries.Person.GetAll.GetAllQueryHandler(repository);
             var result = queryHandler.Handle(query);
 
+            query.SetLoggedUser("test");
+
             Assert.True(result.Count() == 11);
             Assert.True(result.Last().Name == command.Name);
+            Assert.True(query.HasLoggedUser);
         }
 
 
@@ -81,7 +84,7 @@ namespace Tolitech.CodeGenerator.Domain.Tests
         [Fact(DisplayName = "FileQueryResult - Instance - Valid")]
         public void FileQuery_Instance_Valid()
         {
-            var command = new FileQueryResult
+            var result = new FileQueryResult
             {
                 Name = "Name",
                 FileName = "FileName",
@@ -90,7 +93,7 @@ namespace Tolitech.CodeGenerator.Domain.Tests
                 Length = 0
             };
 
-            Assert.NotNull(command);
+            Assert.NotNull(result);
         }
     }
 }

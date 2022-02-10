@@ -11,7 +11,7 @@ namespace Tolitech.CodeGenerator.Domain.Commands
 
         public bool HasLoggedUser { get { return !string.IsNullOrEmpty(LoggedUserId); } }
 
-        public void SetLoggedUser(string loggedUserId)
+        public void SetLoggedUser(string? loggedUserId)
         {
             _loggedUserId = loggedUserId;
         }
