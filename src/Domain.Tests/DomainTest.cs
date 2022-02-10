@@ -72,7 +72,10 @@ namespace Tolitech.CodeGenerator.Domain.Tests
                 Changed = false
             };
 
+            command.SetLoggedUser("test");
+
             Assert.False(command.HasFile);
+            Assert.True(command.HasLoggedUser);
         }
 
         [Fact(DisplayName = "FileQueryResult - Instance - Valid")]
