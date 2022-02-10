@@ -4,6 +4,8 @@ using Xunit;
 using Tolitech.CodeGenerator.Domain.Tests.Domain.Entities;
 using Tolitech.CodeGenerator.Domain.Tests.Infrastructure.Data.Repositories;
 using Tolitech.CodeGenerator.Notification;
+using Tolitech.CodeGenerator.Domain.Commands;
+using Tolitech.CodeGenerator.Domain.Queries;
 
 namespace Tolitech.CodeGenerator.Domain.Tests
 {
@@ -54,6 +56,38 @@ namespace Tolitech.CodeGenerator.Domain.Tests
 
             Assert.True(result.Count() == 11);
             Assert.True(result.Last().Name == command.Name);
+        }
+
+
+        [Fact(DisplayName = "FileCommand - HasFile - Valid")]
+        public void FileCommand_HasFile_Valid()
+        {
+            var command = new FileCommand
+            {
+                Name = "Name",
+                FileName = "FileName",
+                ContentType = "ContentType",
+                File = null,
+                Length = 0,
+                Changed = false
+            };
+
+            Assert.False(command.HasFile);
+        }
+
+        [Fact(DisplayName = "FileQueryResult - Instance - Valid")]
+        public void FileQuery_Instance_Valid()
+        {
+            var command = new FileQueryResult
+            {
+                Name = "Name",
+                FileName = "FileName",
+                ContentType = "ContentType",
+                File = null,
+                Length = 0
+            };
+
+            Assert.NotNull(command);
         }
     }
 }
