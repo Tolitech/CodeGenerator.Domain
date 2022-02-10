@@ -18,6 +18,34 @@ namespace Tolitech.CodeGenerator.Domain.Tests
             Assert.True(person.IsValid());
         }
 
+        [Fact(DisplayName = "Command - Validate - Valid")]
+        public void Command_Validate_Valid()
+        {
+            var command = new Domain.Commands.Person.Insert.InsertCommand { Name = "Name" };
+            Assert.True(command.IsValid());
+        }
+
+        [Fact(DisplayName = "Command - Validate - Invalid")]
+        public void Command_Validate_Invalid()
+        {
+            var command = new Domain.Commands.Person.Insert.InsertCommand { Name = "" };
+            Assert.False(command.IsValid());
+        }
+
+        [Fact(DisplayName = "Query - Validate - Valid")]
+        public void Query_Validate_Valid()
+        {
+            var query = new Domain.Queries.Person.GetAll.GetAllQuery { Param1 = "Test" };
+            Assert.True(query.IsValid());
+        }
+
+        [Fact(DisplayName = "Query - Validate - Invalid")]
+        public void Query_Validate_Invalid()
+        {
+            var query = new Domain.Queries.Person.GetAll.GetAllQuery { Param1 = "" };
+            Assert.False(query.IsValid());
+        }
+
         [Fact(DisplayName = "CommandHandler - Insert - Valid")]
         public void CommandHandler_Insert_Valid()
         {

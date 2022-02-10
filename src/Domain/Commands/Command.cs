@@ -1,4 +1,5 @@
 ﻿using System;
+using FluentValidation.Results;
 using Tolitech.CodeGenerator.Notification;
 
 namespace Tolitech.CodeGenerator.Domain.Commands
@@ -14,6 +15,16 @@ namespace Tolitech.CodeGenerator.Domain.Commands
         public void SetLoggedUser(string? loggedUserId)
         {
             _loggedUserId = loggedUserId;
+        }
+
+        public void Validate(ValidationResult result)
+        {
+            NotificationResult.Clear();
+
+            foreach (var error in result.Errors)
+            {
+                NotificationResult.AddError(error.ErrorMessage);
+            }
         }
     }
 }
