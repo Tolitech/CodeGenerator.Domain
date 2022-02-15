@@ -7,6 +7,6 @@ namespace Tolitech.CodeGenerator.Domain.Services
     {
         string GetTemplate(string filePath, params string[] parameters);
 
-        void Send(string to, string subject, string body, string? cc = null, string? bcc = null, IList<Attachment>? attachments = null);
+        void Send(string host, int port, string username, string password, string from, string to, string subject, string body, string? cc = null, string? bcc = null, IList<Attachment>? attachments = null);
     }
 }
