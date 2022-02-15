@@ -11,6 +11,7 @@ using Tolitech.CodeGenerator.Domain.Tests.Domain.Entities;
 using Tolitech.CodeGenerator.Domain.Tests.Infrastructure.Data.Repositories;
 using Tolitech.CodeGenerator.Domain.Tests.Domain.Services;
 using Tolitech.CodeGenerator.Notification;
+using Tolitech.CodeGenerator.Domain.Tests.Domain.Events.Person;
 
 namespace Tolitech.CodeGenerator.Domain.Tests
 {
@@ -21,6 +22,13 @@ namespace Tolitech.CodeGenerator.Domain.Tests
         {
             var person = new Person("Name");
             Assert.True(person.IsValid());
+        }
+
+        [Fact(DisplayName = "Entity - Validate - Invalid")]
+        public void Entity_Validate_Invalid()
+        {
+            var person = new Person(null);
+            Assert.False(person.IsValid());
         }
 
         [Fact(DisplayName = "Command - Validate - Valid")]
@@ -259,6 +267,13 @@ namespace Tolitech.CodeGenerator.Domain.Tests
             Assert.True(result3.Messages.First().Message == "Registro eliminado con éxito.");
             Assert.True(result4.Messages.First().Message == "File updated successfully.");
             Assert.True(result5.Errors.First().Message == "Ocorreu um erro ao inserir o registro.");
+        }
+
+        [Fact(DisplayName = "Event - LoggerUserId - Valid")]
+        public void Event_LoggedUserId_Valid()
+        {
+            var e = new PersonEvent() { LoggedUserId = Guid.NewGuid().ToString() };
+            Assert.True(!string.IsNullOrEmpty(e.LoggedUserId));
         }
     }
 }

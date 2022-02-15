@@ -11,5 +11,11 @@ namespace Tolitech.CodeGenerator.Domain.Tests.Domain.Entities
         }
 
         public string? Name { get; private set; }
+
+        public override void Validate()
+        {
+            var validator = new PersonValidator();
+            Validate(validator.Validate(this));
+        }
     }
 }
