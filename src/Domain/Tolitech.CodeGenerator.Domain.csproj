@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.3-alpha-4</Version>
+    <Version>1.0.3-alpha-6</Version>
     <Authors>Tolitech</Authors>
     <Description>Domain library for Tolitech Code Generator.</Description>
     <PackageProjectUrl>https://www.tolitech.com.br</PackageProjectUrl>
@@ -31,7 +31,23 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     <PackageReference Include="Tolitech.CodeGenerator.Notification" Version="1.0.0-alpha-1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\CommandHandler\CommandHandlerResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CommandHandlerResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\CommandHandler\CommandHandlerResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommandHandlerResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

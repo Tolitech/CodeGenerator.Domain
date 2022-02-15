@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using Tolitech.CodeGenerator.Domain.Queries;
 using Tolitech.CodeGenerator.Domain.Tests.Domain.Repositories;
@@ -9,7 +10,7 @@ namespace Tolitech.CodeGenerator.Domain.Tests.Domain.Queries.Person.GetAll
     {
 		private readonly IPersonRepository _personRepository;
 
-		public GetAllQueryHandler(IPersonRepository personRepository)
+		public GetAllQueryHandler(IPersonRepository personRepository, ILogger logger) : base(logger)
 		{
 			_personRepository = personRepository;
 		}
