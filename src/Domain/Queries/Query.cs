@@ -6,13 +6,13 @@ namespace Tolitech.CodeGenerator.Domain.Queries
 {
     public abstract class Query : Notifiable, IQuery
     {
-        private string? _loggedUserId;
+        private Guid? _loggedUserId;
 
-        public string? LoggedUserId { get { return _loggedUserId; } }
+        public Guid? LoggedUserId { get { return _loggedUserId; } }
 
-        public bool HasLoggedUser { get { return !string.IsNullOrEmpty(LoggedUserId); } }
+        public bool HasLoggedUser { get { return LoggedUserId.HasValue; } }
 
-        public void SetLoggedUser(string? loggedUserId)
+        public void SetLoggedUser(Guid? loggedUserId)
         {
             _loggedUserId = loggedUserId;
         }

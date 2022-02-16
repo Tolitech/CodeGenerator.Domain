@@ -99,33 +99,6 @@ namespace Tolitech.CodeGenerator.Domain.Resources.CommandHandler {
         /// <summary>
         ///   Looks up a localized string similar to ....
         /// </summary>
-        internal static string InvalidPath_Message {
-            get {
-                return ResourceManager.GetString("InvalidPath_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ....
-        /// </summary>
-        internal static string ItemNotFound_Message {
-            get {
-                return ResourceManager.GetString("ItemNotFound_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ....
-        /// </summary>
-        internal static string UnexpectedError_Message {
-            get {
-                return ResourceManager.GetString("UnexpectedError_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ....
-        /// </summary>
         internal static string UpdateError_Message {
             get {
                 return ResourceManager.GetString("UpdateError_Message", resourceCulture);

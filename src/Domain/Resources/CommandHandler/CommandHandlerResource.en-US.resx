@@ -129,15 +129,6 @@
   <data name="InsertSuccess_Message" xml:space="preserve">
     <value>Registry successfully entered.</value>
   </data>
-  <data name="InvalidPath_Message" xml:space="preserve">
-    <value>Invalid path.</value>
-  </data>
-  <data name="ItemNotFound_Message" xml:space="preserve">
-    <value>Item not found.</value>
-  </data>
-  <data name="UnexpectedError_Message" xml:space="preserve">
-    <value>An unexpected error has occurred. Please try again later.</value>
-  </data>
   <data name="UpdateError_Message" xml:space="preserve">
     <value>There was an error updating the registry.</value>
   </data>

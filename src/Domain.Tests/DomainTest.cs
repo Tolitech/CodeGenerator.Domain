@@ -99,7 +99,7 @@ namespace Tolitech.CodeGenerator.Domain.Tests
             var queryHandler = new Domain.Queries.Person.GetAll.GetAllQueryHandler(repository, logger.Object);
             var result = queryHandler.Handle(query);
 
-            query.SetLoggedUser("test");
+            query.SetLoggedUser(Guid.NewGuid());
 
             Assert.True(result.Count() == 11);
             Assert.True(result.Last().Name == command.Name);
@@ -120,7 +120,7 @@ namespace Tolitech.CodeGenerator.Domain.Tests
                 Changed = false
             };
 
-            command.SetLoggedUser("test");
+            command.SetLoggedUser(Guid.NewGuid());
 
             Assert.False(command.HasFile);
             Assert.True(command.HasLoggedUser);
@@ -272,8 +272,8 @@ namespace Tolitech.CodeGenerator.Domain.Tests
         [Fact(DisplayName = "Event - LoggerUserId - Valid")]
         public void Event_LoggedUserId_Valid()
         {
-            var e = new PersonEvent() { LoggedUserId = Guid.NewGuid().ToString() };
-            Assert.True(!string.IsNullOrEmpty(e.LoggedUserId));
+            var e = new PersonEvent() { LoggedUserId = Guid.NewGuid() };
+            Assert.True(e.LoggedUserId.HasValue);
         }
     }
 }
