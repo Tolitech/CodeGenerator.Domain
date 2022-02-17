@@ -2,7 +2,7 @@
 
 namespace Tolitech.CodeGenerator.Domain.Services
 {
-    public interface IInfraService : IService
+    public interface IInfrastructureService : IService
     {
 
     }

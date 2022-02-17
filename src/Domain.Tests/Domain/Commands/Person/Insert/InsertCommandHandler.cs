@@ -1,5 +1,7 @@
 ﻿using System;
+using Microsoft.Extensions.Logging;
 using Tolitech.CodeGenerator.Domain.Commands;
+using Tolitech.CodeGenerator.Domain.Services;
 using Tolitech.CodeGenerator.Domain.Tests.Domain.Repositories;
 using Tolitech.CodeGenerator.Notification;
 
@@ -9,7 +11,7 @@ namespace Tolitech.CodeGenerator.Domain.Tests.Domain.Commands.Person.Insert
     {
 		private readonly IPersonRepository _personRepository;
 
-		public InsertCommandHandler(IPersonRepository personRepository)
+		public InsertCommandHandler(IUnitOfWorkService uow, IPersonRepository personRepository, ILogger logger) : base(uow, logger)
 		{
 			_personRepository = personRepository;
 		}
